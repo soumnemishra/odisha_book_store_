@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   Color Design System - Odisha Book Store
+   ========================================
+   Primary: Terracotta (#E07A5F) - Brand identity
+   Secondary: Deep Navy (#3D405B) - Text, headers
+   CTA: Vibrant Orange (#F97316) - Buy buttons
+   Trust: Ocean Blue (#2563EB) - Links, security
+   Success: Emerald (#10B981) - Checkout
+   Sale: Crimson (#DC2626) - Discounts
+   ======================================== */
+
+@layer base {
+  body {
+    @apply text-secondary font-sans antialiased;
+    background-color: theme('colors.background.cream');
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-secondary;
+  }
+}
+
+@layer components {
+  /* ============ CTA Buttons (Conversion-focused) ============ */
+  .btn-cta {
+    @apply text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg active:scale-95;
+    background-color: theme('colors.cta.DEFAULT');
+  }
+  .btn-cta:hover {
+    background-color: theme('colors.cta.hover');
+  }
+  .btn-cta:active {
+    background-color: theme('colors.cta.active');
+  }
+  
+  /* ============ Primary Buttons (Trust/Links) ============ */
+  .btn-primary {
+    @apply text-white px-6 py-2.5 rounded-lg font-medium transition-all shadow-sm hover:shadow-md active:scale-95;
+    background-color: theme('colors.trust.DEFAULT');
+  }
+  .btn-primary:hover {
+    background-color: theme('colors.trust.dark');
+  }
+  
+  /* ============ Secondary Buttons ============ */
+  .btn-secondary {
+    @apply bg-white border border-gray-200 px-6 py-2.5 rounded-lg font-medium hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm text-secondary;
+  }
+  
+  /* ============ Accent Buttons (Brand) ============ */
+  .btn-accent {
+    @apply text-white px-6 py-2.5 rounded-lg font-medium transition-all shadow-sm hover:shadow-md active:scale-95;
+    background-color: theme('colors.primary.DEFAULT');
+  }
+  .btn-accent:hover {
+    background-color: theme('colors.primary.600');
+  }
+  
+  /* ============ Success Buttons (Checkout) ============ */
+  .btn-success {
+    @apply text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg active:scale-95;
+    background-color: theme('colors.success.DEFAULT');
+  }
+  .btn-success:hover {
+    background-color: theme('colors.success.dark');
+  }
+  
+  /* ============ Danger/Error Buttons ============ */
+  .btn-danger {
+    @apply text-white px-6 py-2.5 rounded-lg font-medium transition-all shadow-sm hover:shadow-md active:scale-95;
+    background-color: theme('colors.error.DEFAULT');
+  }
+  .btn-danger:hover {
+    background-color: theme('colors.error.dark');
+  }
+
+  /* ============ Layout Components ============ */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .card {
+    @apply bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+  
+  /* ============ E-Commerce Premium Components ============ */
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl;
+  }
+  .glass-dark {
+    @apply bg-secondary/90 backdrop-blur-md border border-white/10 text-white rounded-2xl;
+  }
+  
+  /* ============ Text & Gradients ============ */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(to right, #E07A5F, #F97316, #DC2626);
+  }
+  .gradient-primary {
+    background-image: linear-gradient(to right, #E07A5F, #F97316);
+  }
+  .gradient-cta {
+    background-image: linear-gradient(to right, #F97316, #EA580C);
+  }
+  
+  /* ============ Shadows & Effects ============ */
+  .shadow-premium {
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 4px 20px -5px rgba(0, 0, 0, 0.1);
+  }
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+  .hover-lift:hover {
+    @apply -translate-y-1;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.2);
+  }
+  .hover-glow:hover {
+    box-shadow: 0 0 30px rgba(224, 122, 95, 0.4);
+  }
+  
+  /* ============ Trust & Status Badges ============ */
+  .trust-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium;
+    background-color: theme('colors.success.muted');
+    color: theme('colors.success.dark');
+    border: 1px solid theme('colors.success.light');
+  }
+  .sale-badge {
+    @apply inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs font-bold;
+    background-color: theme('colors.sale.badge');
+    color: theme('colors.sale.DEFAULT');
+  }
+  .warning-badge {
+    @apply inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs font-medium;
+    background-color: theme('colors.warning.muted');
+    color: theme('colors.warning.dark');
+  }
+  
+  /* ============ Stats & Cards ============ */
+  .stat-card {
+    @apply text-center p-6 rounded-2xl border border-gray-100 shadow-sm;
+    background: linear-gradient(to bottom right, #FFFFFF, #F5F5F4);
+  }
+  .stat-number {
+    @apply text-4xl md:text-5xl font-bold text-primary;
+  }
+  .stat-label {
+    @apply text-gray-600 text-sm mt-1 font-medium;
+  }
+  
+  /* ============ Section Typography ============ */
+  .section-title {
+    @apply text-3xl md:text-4xl font-serif font-bold text-secondary text-center;
+  }
+  .section-subtitle {
+    @apply text-gray-500 text-center mt-3 max-w-2xl mx-auto;
+  }
+  
+  /* ============ Links ============ */
+  .link-trust {
+    @apply underline-offset-2 hover:underline transition-colors;
+    color: #2563EB;
+  }
+  .link-trust:hover {
+    color: #1D4ED8;
+  }
+  .link-primary {
+    @apply transition-colors;
+    color: #E07A5F;
+  }
+  .link-primary:hover {
+    color: #D45A3A;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  /* Price styling */
+  .price-original {
+    @apply line-through text-gray-400;
+  }
+  .price-sale {
+    @apply font-bold;
+    color: #DC2626;
+  }
+  .price-current {
+    @apply font-bold text-secondary;
+  }
+  
+  /* ============ 3D Book Cover Utilities ============ */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  /* ============ Hero Section Styles ============ */
+  .hero-gradient-text {
+    @apply bg-clip-text text-transparent font-serif font-bold;
+    background-image: linear-gradient(135deg, #3D405B 0%, #E07A5F 100%);
+  }
+  .trust-metric {
+    @apply flex items-center gap-2 text-secondary/80;
+  }
+  .trust-metric-icon {
+    @apply w-5 h-5 text-primary;
+  }
+}

@@ -1,0 +1,12 @@
+export const APP_CONFIG = {
+  APP_NAME: 'Odisha Book Store',
+  VERSION: '1.0.0',
+  CURRENCY: 'INR',
+  CURRENCY_SYMBOL: '₹',
+  SHIPPING_COST: 0,
+  FREE_SHIPPING_THRESHOLD: 1000,
+  ITEMS_PER_PAGE: 12,
+  DEFAULT_CATEGORY: 'All',
+  MAX_CART_ITEMS: 100,
+};
+

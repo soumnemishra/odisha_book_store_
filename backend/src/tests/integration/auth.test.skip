@@ -1,0 +1,249 @@
+import request from 'supertest';
+import { connectTestDB, disconnectTestDB, clearTestDB } from '../../helpers/mockDatabase.js';
+import app from '../../../server.js';
+
+describe('Authentication Integration Tests', () => {
+  beforeAll(async () => {
+    await connectTestDB();
+  });
+
+  afterAll(async () => {
+    await disconnectTestDB();
+  });
+
+  beforeEach(async () => {
+    await clearTestDB();
+  });
+
+  describe('POST /api/auth/register', () => {
+    it('should register a new user successfully', async () => {
+      const userData = {
+        name: 'Integration Test User',
+        email: 'integration@example.com',
+        password: 'Password123!',
+      };
+
+      const response = await request(app)
+        .post('/api/auth/register')
+        .send(userData)
+        .expect('Content-Type', /json/)
+        .expect(201);
+
+      expect(response.body.success).toBe(true);
+      expect(response.body.data).toHaveProperty('user');
+      expect(response.body.data).toHaveProperty('token');
+      expect(response.body.data.user.email).toBe(userData.email);
+      expect(response.body.data.user).not.toHaveProperty('password');
+    });
+
+    it('should return 400 for missing required fields', async () => {
+      const response = await request(app)
+        .post('/api/auth/register')
+        .send({ email: 'test@example.com' })
+        .expect(400);
+
+      expect(response.body.success).toBe(false);
+    });
+
+    it('should return 409 for duplicate email', async () => {
+      const userData = {
+        name: 'Test User',
+        email: 'duplicate@example.com',
+        password: 'Password123!',
+      };
+
+      await request(app).post('/api/auth/register').send(userData).expect(201);
+
+      const response = await request(app).post('/api/auth/register').send(userData).expect(409);
+
+      expect(response.body.success).toBe(false);
+    });
+
+    it('should set authentication cookie', async () => {
+      const userData = {
+        name: 'Cookie Test User',
+        email: 'cookie@example.com',
+        password: 'Password123!',
+      };
+
+      const response = await request(app).post('/api/auth/register').send(userData).expect(201);
+
+      expect(response.headers['set-cookie']).toBeDefined();
+    });
+  });
+
+  describe('POST /api/auth/login', () => {
+    beforeEach(async () => {
+      await request(app).post('/api/auth/register').send({
+        name: 'Login Test User',
+        email: 'login@example.com',
+        password: 'Password123!',
+      });
+    });
+
+    it('should login with correct credentials', async () => {
+      const response = await request(app)
+        .post('/api/auth/login')
+        .send({
+          email: 'login@example.com',
+          password: 'Password123!',
+        })
+        .expect(200);
+
+      expect(response.body.success).toBe(true);
+      expect(response.body.data).toHaveProperty('user');
+      expect(response.body.data).toHaveProperty('token');
+    });
+
+    it('should return 401 for incorrect password', async () => {
+      const response = await request(app)
+        .post('/api/auth/login')
+        .send({
+          email: 'login@example.com',
+          password: 'WrongPassword123!',
+        })
+        .expect(401);
+
+      expect(response.body.success).toBe(false);
+    });
+
+    it('should return 401 for non-existent user', async () => {
+      const response = await request(app)
+        .post('/api/auth/login')
+        .send({
+          email: 'nonexistent@example.com',
+          password: 'Password123!',
+        })
+        .expect(401);
+
+      expect(response.body.success).toBe(false);
+    });
+
+    it('should set authentication cookie on successful login', async () => {
+      const response = await request(app)
+        .post('/api/auth/login')
+        .send({
+          email: 'login@example.com',
+          password: 'Password123!',
+        })
+        .expect(200);
+
+      expect(response.headers['set-cookie']).toBeDefined();
+    });
+  });
+
+  describe('GET /api/auth/me', () => {
+    let authToken;
+
+    beforeEach(async () => {
+      const response = await request(app).post('/api/auth/register').send({
+        name: 'Auth Me User',
+        email: 'authme@example.com',
+        password: 'Password123!',
+      });
+
+      authToken = response.body.data.token;
+    });
+
+    it('should get current user with valid token', async () => {
+      const response = await request(app)
+        .get('/api/auth/me')
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(200);
+
+      expect(response.body.success).toBe(true);
+      expect(response.body.data.email).toBe('authme@example.com');
+      expect(response.body.data).not.toHaveProperty('password');
+    });
+
+    it('should return 401 without token', async () => {
+      const response = await request(app).get('/api/auth/me').expect(401);
+
+      expect(response.body.success).toBe(false);
+    });
+
+    it('should return 401 with invalid token', async () => {
+      const response = await request(app)
+        .get('/api/auth/me')
+        .set('Authorization', 'Bearer invalid-token')
+        .expect(401);
+
+      expect(response.body.success).toBe(false);
+    });
+  });
+
+  describe('POST /api/auth/logout', () => {
+    let authToken;
+
+    beforeEach(async () => {
+      const response = await request(app).post('/api/auth/register').send({
+        name: 'Logout User',
+        email: 'logout@example.com',
+        password: 'Password123!',
+      });
+
+      authToken = response.body.data.token;
+    });
+
+    it('should logout successfully', async () => {
+      const response = await request(app)
+        .post('/api/auth/logout')
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(200);
+
+      expect(response.body.success).toBe(true);
+    });
+
+    it('should clear authentication cookie', async () => {
+      const response = await request(app)
+        .post('/api/auth/logout')
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(200);
+
+      const cookies = response.headers['set-cookie'];
+      expect(cookies).toBeDefined();
+      // Cookie should be cleared (set to empty or expired)
+    });
+  });
+
+  describe('Full authentication flow', () => {
+    it('should complete register -> login -> get profile -> logout flow', async () => {
+      // Register
+      const registerResponse = await request(app)
+        .post('/api/auth/register')
+        .send({
+          name: 'Flow Test User',
+          email: 'flow@example.com',
+          password: 'Password123!',
+        })
+        .expect(201);
+
+      expect(registerResponse.body.success).toBe(true);
+
+      // Login
+      const loginResponse = await request(app)
+        .post('/api/auth/login')
+        .send({
+          email: 'flow@example.com',
+          password: 'Password123!',
+        })
+        .expect(200);
+
+      const { token } = loginResponse.body.data;
+
+      // Get profile
+      const profileResponse = await request(app)
+        .get('/api/auth/me')
+        .set('Authorization', `Bearer ${token}`)
+        .expect(200);
+
+      expect(profileResponse.body.data.email).toBe('flow@example.com');
+
+      // Logout
+      await request(app)
+        .post('/api/auth/logout')
+        .set('Authorization', `Bearer ${token}`)
+        .expect(200);
+    });
+  });
+});
