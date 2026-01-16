@@ -1,120 +1,131 @@
 <p align="center">
-  <img src="https://img.icons8.com/color/96/books.png" alt="Odisha Book Store Logo" width="100"/>
+  <img src="https://img.icons8.com/fluency/96/books.png" alt="Odisha Book Store Logo" width="120"/>
 </p>
 
 <h1 align="center">📚 Odisha Book Store</h1>
 
 <p align="center">
-  <strong>A Modern Full-Stack E-Commerce Platform for Odia Literature</strong>
+  <strong>A Full-Stack E-Commerce Platform Celebrating Odia Literature</strong>
 </p>
 
 <p align="center">
-  <a href="#features">Features</a> •
-  <a href="#tech-stack">Tech Stack</a> •
-  <a href="#quick-start">Quick Start</a> •
-  <a href="#api-docs">API Docs</a> •
-  <a href="#deployment">Deployment</a>
+  <em>Bringing authentic Odia books from Orissa Book Store to readers worldwide</em>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js"/>
   <img src="https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React"/>
   <img src="https://img.shields.io/badge/MongoDB-6.0+-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"/>
-  <img src="https://img.shields.io/badge/Express.js-4.x-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express"/>
+  <img src="https://img.shields.io/badge/Expo-54+-000020?style=for-the-badge&logo=expo&logoColor=white" alt="Expo"/>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" alt="License"/>
-  <img src="https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square" alt="PRs Welcome"/>
-  <img src="https://img.shields.io/badge/TypeScript-Ready-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript"/>
+  <a href="#-features">Features</a> •
+  <a href="#-tech-stack">Tech Stack</a> •
+  <a href="#-quick-start">Quick Start</a> •
+  <a href="#-project-structure">Structure</a> •
+  <a href="#-api-reference">API</a>
 </p>
+
+---
+
+## 📖 About
+
+Odisha Book Store is a modern e-commerce platform dedicated to Odia literature, featuring **150+ authentic Odia books** across 20+ categories including Biography, Poetry, Novels, Short Stories, Educational materials, Health, Travel, and Literary Criticism. The platform supports **bilingual titles** (ଓଡ଼ିଆ/English) and provides a rich shopping experience with a built-in AI chatbot assistant.
 
 ---
 
 ## ✨ Features
 
-<table>
-<tr>
-<td width="50%">
-
-### 🛒 Shopping Experience
-- **Smart Search** with autocomplete & filters
-- **Shopping Cart** with persistent storage
-- **Wishlist** for saving favorites
-- **Category Browsing** for easy navigation
-
-</td>
-<td width="50%">
+### 🛒 Customer Experience
+| Feature | Description |
+|---------|-------------|
+| **Smart Search** | Fuzzy search with Fuse.js - handles typos, autocomplete suggestions |
+| **AI Chatbot** | Intent-based assistant for book search, order tracking, recommendations |
+| **Bilingual Support** | Books displayed in Odia (ଓଡ଼ିଆ) and English |
+| **Shopping Cart** | Persistent cart with real-time price updates |
+| **Guest Checkout** | Order without creating an account |
+| **Wishlist** | Save books for later |
+| **Order Tracking** | Real-time order status updates |
 
 ### 👤 User Management
-- **JWT Authentication** with secure tokens
-- **Role-based Access** (User/Admin)
-- **Profile Management** with order history
-- **Password Encryption** with bcrypt
-
-</td>
-</tr>
-<tr>
-<td width="50%">
+| Feature | Description |
+|---------|-------------|
+| **JWT Authentication** | Secure token-based auth with bcrypt password hashing |
+| **Role-Based Access** | User and Admin roles with protected routes |
+| **Profile Management** | Address book, order history, account settings |
+| **Password Policies** | Enforced strong passwords (uppercase, lowercase, number) |
 
 ### 📚 Book Catalog
-- **Bilingual Support** (Odia/English)
-- **Rich Book Details** with images
-- **Stock Management** for inventory
-- **Category Organization** for browsing
-
-</td>
-<td width="50%">
+| Feature | Description |
+|---------|-------------|
+| **150+ Books** | Curated collection from Orissa Book Store |
+| **20+ Categories** | Biography, Poetry, Novel, Educational, Health, etc. |
+| **Discount System** | Original and discounted pricing with percentage display |
+| **Soft Delete** | Books are archived, not permanently deleted |
+| **Reviews & Ratings** | User reviews with star ratings |
 
 ### 🛠️ Admin Panel
-- **Dashboard Analytics** for insights
-- **Book CRUD Operations** for management
-- **Order Management** for fulfillment
-- **User Administration** for control
+| Feature | Description |
+|---------|-------------|
+| **Dashboard Analytics** | Sales charts with Recharts |
+| **Book Management** | Full CRUD with image upload |
+| **Order Management** | Status updates (Pending → Delivered) |
+| **User Management** | View and manage customers |
 
-</td>
-</tr>
-</table>
-
-### 🚀 Coming Soon
-- 🤖 AI-Powered Book Recommendations
-- 💳 Payment Gateway Integration (Razorpay)
-- 📱 React Native Mobile App
-- 📧 Email Notifications
+### 📱 Mobile App (React Native)
+| Feature | Description |
+|---------|-------------|
+| **Expo SDK 54** | Cross-platform iOS/Android |
+| **Native Navigation** | Expo Router with tabs |
+| **Zustand State** | Global cart, wishlist, auth state |
+| **Animations** | React Native Reanimated |
 
 ---
 
 ## 🏗️ Tech Stack
 
 ### Backend
-| Technology | Purpose |
-|------------|---------|
-| ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white) | Runtime Environment |
-| ![Express](https://img.shields.io/badge/Express.js-000000?style=flat-square&logo=express&logoColor=white) | Web Framework |
-| ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) | Database |
-| ![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white) | Authentication |
-| ![Jest](https://img.shields.io/badge/Jest-C21325?style=flat-square&logo=jest&logoColor=white) | Testing |
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| Node.js | 18+ | Runtime |
+| Express.js | 4.18 | Web framework |
+| MongoDB | 6.0+ | Database |
+| Mongoose | 8.0 | ODM |
+| JWT | 9.0 | Authentication |
+| Fuse.js | 7.1 | Fuzzy search |
+| Winston | 3.11 | Logging |
+| Helmet | 8.1 | Security headers |
+| Jest | 29.7 | Testing |
 
-### Frontend
-| Technology | Purpose |
-|------------|---------|
-| ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black) | UI Library |
-| ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) | Build Tool |
-| ![Tailwind](https://img.shields.io/badge/Tailwind-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white) | Styling |
-| ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=flat-square&logo=reactrouter&logoColor=white) | Navigation |
+### Frontend (Customer App)
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| React | 18.2 | UI library |
+| Vite | 7.1 | Build tool |
+| TanStack Query | 5.90 | Data fetching |
+| Framer Motion | 12.23 | Animations |
+| GSAP | 3.14 | Advanced animations |
+| Tailwind CSS | 3.3 | Styling |
+| Axios | 1.6 | HTTP client |
 
 ### Admin Panel
-| Technology | Purpose |
-|------------|---------|
-| ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black) | UI Library |
-| ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) | Type Safety |
-| ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) | Build Tool |
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| React | 19.2 | UI library |
+| TypeScript | 5.9 | Type safety |
+| Vite | 7.2 | Build tool |
+| Recharts | 3.6 | Analytics charts |
+| Lucide React | 0.562 | Icons |
 
 ### Mobile App
-| Technology | Purpose |
-|------------|---------|
-| ![Expo](https://img.shields.io/badge/Expo-000020?style=flat-square&logo=expo&logoColor=white) | Development Platform |
-| ![React Native](https://img.shields.io/badge/React_Native-61DAFB?style=flat-square&logo=react&logoColor=black) | Mobile Framework |
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| Expo | 54.0 | Development platform |
+| React Native | 0.81 | Mobile framework |
+| Expo Router | 6.0 | File-based routing |
+| Zustand | 5.0 | State management |
+| React Native Reanimated | 4.1 | Animations |
 
 ---
 
@@ -122,38 +133,93 @@
 
 ```
 odisha_book_store/
-├── 📂 backend/              # Express.js API Server
-│   ├── src/
-│   │   ├── controllers/     # Request handlers
-│   │   ├── models/          # MongoDB schemas
-│   │   ├── routes/          # API routes
-│   │   ├── middleware/      # Auth, validation, etc.
-│   │   ├── services/        # Business logic
-│   │   └── utils/           # Helper functions
-│   ├── scripts/             # Migration & utility scripts
-│   └── tests/               # Jest test suites
 │
-├── 📂 frontend/             # React Customer App
+├── 📂 backend/                    # Express.js API Server
 │   ├── src/
-│   │   ├── components/      # Reusable UI components
-│   │   ├── pages/           # Route pages
-│   │   ├── services/        # API client
-│   │   └── context/         # React context providers
-│   └── public/              # Static assets
+│   │   ├── controllers/           # Route handlers (7 controllers)
+│   │   │   ├── authController.js      # Login, register, profile
+│   │   │   ├── bookController.js      # CRUD for books
+│   │   │   ├── orderController.js     # Order management
+│   │   │   ├── userController.js      # User management
+│   │   │   ├── adminController.js     # Admin dashboard
+│   │   │   ├── chatbotController.js   # AI chatbot endpoints
+│   │   │   └── aiController.js        # AI recommendations
+│   │   │
+│   │   ├── models/                # MongoDB schemas
+│   │   │   ├── Book.js               # Bilingual titles, pricing, reviews
+│   │   │   ├── User.js               # Auth, roles, addresses
+│   │   │   └── Order.js              # Guest & user orders
+│   │   │
+│   │   ├── services/              # Business logic
+│   │   │   ├── searchService.js      # Fuse.js fuzzy search
+│   │   │   ├── chatbotService.js     # Intent detection, responses
+│   │   │   ├── authService.js        # JWT, password hashing
+│   │   │   └── bookService.js        # Book operations
+│   │   │
+│   │   ├── middleware/            # Express middleware
+│   │   │   ├── authMiddleware.js     # JWT verification
+│   │   │   ├── rateLimiter.js        # DDoS protection
+│   │   │   └── errorHandler.js       # Global error handling
+│   │   │
+│   │   ├── routes/                # API routes (8 route files)
+│   │   ├── validators/            # Input validation
+│   │   ├── utils/                 # Helpers (logger, jwt, cache)
+│   │   └── seed/                  # Database seeding (150+ books)
+│   │
+│   └── scripts/                   # Migration & utility scripts
 │
-├── 📂 admin/                # React Admin Panel (TypeScript)
+├── 📂 frontend/                   # React Customer Web App
 │   └── src/
-│       ├── components/      # Admin UI components
-│       ├── pages/           # Admin pages
-│       └── services/        # Admin API client
+│       ├── pages/                 # 11 pages
+│       │   ├── Home.jsx              # Hero, bestsellers, categories
+│       │   ├── Books.jsx             # Catalog with filters
+│       │   ├── BookDetails.jsx       # Product page with reviews
+│       │   ├── Cart.jsx              # Shopping cart
+│       │   ├── Checkout.jsx          # Multi-step checkout
+│       │   ├── Orders.jsx            # Order history
+│       │   ├── Wishlist.jsx          # Saved items
+│       │   └── Login/Register.jsx    # Authentication
+│       │
+│       ├── components/            # 23+ reusable components
+│       │   ├── ChatbotWidget.jsx     # AI assistant
+│       │   ├── SearchAutocomplete.jsx # Smart search
+│       │   ├── BookCard.jsx          # Product card
+│       │   ├── HeroSection.jsx       # Landing hero
+│       │   └── ...
+│       │
+│       └── services/              # API clients
 │
-├── 📂 mobile/               # React Native App (Expo)
-│   ├── app/                 # Expo Router screens
-│   ├── components/          # Mobile components
-│   └── store/               # State management
+├── 📂 admin/                      # React/TypeScript Admin Panel
+│   └── src/
+│       ├── pages/
+│       │   ├── DashboardPage.tsx     # Analytics & charts
+│       │   ├── ProductsPage.tsx      # Book management
+│       │   ├── OrdersPage.tsx        # Order fulfillment
+│       │   └── LoginPage.tsx         # Admin authentication
+│       │
+│       └── components/            # Admin UI components
 │
-├── 📂 shared/               # Shared constants & docs
-└── 📂 scripts/              # Deployment scripts
+├── 📂 mobile/                     # React Native / Expo App
+│   ├── app/
+│   │   ├── (auth)/                # Login, signup screens
+│   │   └── (tabs)/                # Main app tabs
+│   │       ├── index.jsx             # Home
+│   │       ├── cart.jsx              # Cart
+│   │       ├── wishlist.jsx          # Wishlist
+│   │       ├── orders.jsx            # Order history
+│   │       └── profile.jsx           # User profile
+│   │
+│   ├── components/                # Mobile UI components
+│   └── store/                     # Zustand stores
+│
+├── 📂 shared/                     # Shared resources
+│   ├── constants/
+│   │   └── categories.json           # Book categories
+│   └── docs/
+│       ├── API_REFERENCE.md          # API documentation
+│       └── SYSTEM_DESIGN.md          # Architecture docs
+│
+└── docker-compose.yml             # Docker deployment
 ```
 
 ---
@@ -166,109 +232,148 @@ odisha_book_store/
 - **MongoDB** (local or [MongoDB Atlas](https://www.mongodb.com/atlas))
 - **npm** or **yarn**
 
-### 1️⃣ Clone the Repository
+### 1️⃣ Clone & Install
 
 ```bash
+# Clone the repository
 git clone https://github.com/soumnemishra/odisha_book_store_.git
 cd odisha_book_store_
-```
 
-### 2️⃣ Setup Backend
-
-```bash
+# Install backend dependencies
 cd backend
 npm install
-cp .env.example .env
-# Edit .env with your MongoDB URI and JWT secret
-```
 
-### 3️⃣ Setup Frontend
-
-```bash
+# Install frontend dependencies
 cd ../frontend
+npm install
+
+# (Optional) Install admin panel
+cd ../admin
+npm install
+
+# (Optional) Install mobile app
+cd ../mobile
 npm install
 ```
 
-### 4️⃣ Configure Environment Variables
+### 2️⃣ Configure Environment
 
-**Backend** (`backend/.env`):
+Create `backend/.env`:
+
 ```env
+# Server
 NODE_ENV=development
 PORT=5000
+
+# Database
 MONGODB_URI=mongodb://localhost:27017/odisha_book_store
+
+# Authentication (min 32 characters)
 JWT_SECRET=your_super_secret_jwt_key_at_least_32_characters
 JWT_EXPIRE=30d
+
+# URLs
+API_BASE_URL=http://localhost:5000
+CLIENT_URL=http://localhost:5173
 ```
 
-**Frontend** (`frontend/.env`):
+Create `frontend/.env`:
+
 ```env
 VITE_API_BASE_URL=http://localhost:5000/api
 ```
 
-### 5️⃣ Run the Application
+### 3️⃣ Seed Database
+
+```bash
+cd backend
+npm run seed    # Imports 150+ Odia books
+```
+
+### 4️⃣ Start Development
 
 **Terminal 1 - Backend:**
 ```bash
 cd backend
-npm run dev
+npm run dev     # Starts on http://localhost:5000
 ```
 
 **Terminal 2 - Frontend:**
 ```bash
 cd frontend
-npm run dev
+npm run dev     # Starts on http://localhost:5173
 ```
 
-### 6️⃣ Open in Browser
+**Terminal 3 - Admin (Optional):**
+```bash
+cd admin
+npm run dev     # Starts on http://localhost:5174
+```
 
-- **Frontend**: http://localhost:5173
-- **Backend API**: http://localhost:5000/api
+**Terminal 4 - Mobile (Optional):**
+```bash
+cd mobile
+npx expo start  # Opens Expo Go
+```
 
 ---
 
-## 📖 API Documentation
+## 📚 API Reference
 
 ### Base URL
 ```
 http://localhost:5000/api
 ```
 
-### Authentication Endpoints
+### Authentication
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | `POST` | `/auth/register` | Register new user |
-| `POST` | `/auth/login` | Login user |
-| `GET` | `/auth/profile` | Get user profile |
+| `POST` | `/auth/login` | Login & get JWT token |
+| `GET` | `/auth/me` | Get current user profile |
 
-### Book Endpoints
+### Books
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| `GET` | `/books` | Get all books |
-| `GET` | `/books/:id` | Get book by ID |
+| `GET` | `/books` | List books (with pagination, filters) |
+| `GET` | `/books/:id` | Get single book details |
+| `GET` | `/books/search?q=` | Fuzzy search books |
+| `GET` | `/books/suggestions?q=` | Autocomplete suggestions |
 | `POST` | `/books` | Create book (Admin) |
 | `PUT` | `/books/:id` | Update book (Admin) |
-| `DELETE` | `/books/:id` | Delete book (Admin) |
+| `DELETE` | `/books/:id` | Soft delete book (Admin) |
 
-### Order Endpoints
+### Orders
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| `GET` | `/orders` | Get user orders |
 | `POST` | `/orders` | Create new order |
+| `GET` | `/orders/myorders` | Get user's orders |
 | `GET` | `/orders/:id` | Get order details |
+| `PUT` | `/orders/:id/status` | Update order status (Admin) |
 
-> 📚 Full API documentation available at [shared/docs/API_REFERENCE.md](./shared/docs/API_REFERENCE.md)
+### Chatbot
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/chatbot/message` | Send message to chatbot |
+| `GET` | `/chatbot/suggestions` | Get quick action suggestions |
+
+### Health & Admin
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/health` | Server health check |
+| `GET` | `/admin/dashboard` | Dashboard analytics (Admin) |
 
 ---
 
 ## 🐳 Docker Deployment
 
-### Using Docker Compose
-
 ```bash
-# Build and start all services
+# Start all services
 docker-compose up -d
 
 # View logs
@@ -278,61 +383,61 @@ docker-compose logs -f
 docker-compose down
 ```
 
-### Services
-- **Backend API**: http://localhost:5000
-- **Frontend**: http://localhost:3000
-- **MongoDB**: localhost:27017
-
----
-
-## 🧪 Testing
-
-### Run Backend Tests
-
-```bash
-cd backend
-
-# Run all tests
-npm test
-
-# Run with coverage
-npm run test:coverage
-
-# Run unit tests only
-npm run test:unit
-
-# Run integration tests
-npm run test:integration
-```
+**Services:**
+- Backend API: `http://localhost:5000`
+- Frontend: `http://localhost:3000`
+- MongoDB: `localhost:27017`
 
 ---
 
 ## 📜 Available Scripts
 
 ### Backend
-
 | Script | Description |
 |--------|-------------|
+| `npm run dev` | Start with nodemon (hot reload) |
 | `npm start` | Start production server |
-| `npm run dev` | Start dev server with hot reload |
-| `npm run seed` | Seed database with sample books |
-| `npm test` | Run test suite |
-| `npm run lint` | Run ESLint |
-| `npm run format` | Format code with Prettier |
+| `npm run seed` | Import 150+ books |
+| `npm test` | Run Jest tests |
+| `npm run lint` | ESLint check |
+| `npm run format` | Prettier format |
 
 ### Frontend
-
 | Script | Description |
 |--------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build |
+| `npm run dev` | Vite dev server |
+| `npm run build` | Production build |
+| `npm run preview` | Preview build |
+
+### Mobile
+| Script | Description |
+|--------|-------------|
+| `npx expo start` | Start Expo |
+| `npx expo start --android` | Android emulator |
+| `npx expo start --ios` | iOS simulator |
+
+---
+
+## 📂 Book Categories
+
+The platform features books in the following categories:
+
+| Category | Examples |
+|----------|----------|
+| **Biography** | ପ୍ରିୟଦର୍ଶିନୀ ଇନ୍ଦିରା, ସର୍ଦ୍ଦାର ପଟେଲ |
+| **Autobiography** | ମୋ ବାରବୁଲା ଜୀବନ, ସାନ ଗୋଟିଏ ଜୀବନ |
+| **Novel** | ଅମାବାସ୍ୟାର ଚନ୍ଦ୍ର, ଜଙ୍ଗଲି ସହର |
+| **Short Story** | ଫୁଟରୁ ଫାଟରୁ, ଶକୁନିର ଛକା |
+| **Poetry** | ଗାନ୍ଧି ଗାଥା, ଗୀତାଞ୍ଜଳି |
+| **Educational** | English Grammar, Word Books |
+| **Health** | ଆମ ଯୋଗ ଚିକିତ୍ସା, ସ୍ବାସ୍ଥ୍ୟ Guides |
+| **Travel** | ଆଜିର ଆମେରିକା, ମାର୍କିନ୍ ପରିକ୍ରମା |
+| **Literary Criticism** | ଉପନ୍ୟାସ ତତ୍ତ୍ଵ, ସାରସ୍ୱତ ସମୀକ୍ଷା |
+| **Science** | ବିଜ୍ଞାନ କୁଇଜ୍, ପିରାମିଡ୍ |
 
 ---
 
 ## 🤝 Contributing
-
-Contributions are always welcome! Here's how you can help:
 
 1. **Fork** the repository
 2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
@@ -352,7 +457,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 **Soumen Mishra**
 
-- GitHub: [@soumnemishra](https://github.com/soumnemishra)
+[![GitHub](https://img.shields.io/badge/GitHub-@soumnemishra-181717?style=flat-square&logo=github)](https://github.com/soumnemishra)
 
 ---
 
@@ -361,5 +466,11 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/ଓଡ଼ିଆ-ପ୍ରେମ-orange?style=for-the-badge" alt="Odia Pride"/>
+  <strong>ଓଡ଼ିଆ ସାହିତ୍ୟକୁ ବିଶ୍ୱ ଦରବାରରେ ପହଞ୍ଚାଇବା</strong><br/>
+  <em>Bringing Odia Literature to the World</em>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/ଓଡ଼ିଆ-ସାହିତ୍ୟ-FF6B35?style=for-the-badge" alt="Odia Literature"/>
+  <img src="https://img.shields.io/badge/Made_in-Odisha-00A651?style=for-the-badge" alt="Made in Odisha"/>
 </p>
